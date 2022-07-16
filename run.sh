@@ -7,8 +7,8 @@ go build -o vigilate cmd/web/*.go && ./vigilate \
 -dbuser='postgres' \
 -dbpass='123456' \
 -pusherHost='localhost' \
--pusherKey='abc123' \
--pusherSecret='123abc' \
+-pusherKey='123abc' \
+-pusherSecret='abc123' \
 -pusherApp="1"
 #-pusherPort="4001"
 #-pusherSecure=false
