@@ -9,6 +9,6 @@ go build -o vigilate cmd/web/*.go && ./vigilate \
 -pusherHost='localhost' \
 -pusherKey='123abc' \
 -pusherSecret='abc123' \
--pusherApp="1"
-#-pusherPort="4001"
-#-pusherSecure=false
+-pusherApp="1" \
+-pusherPort="4001" \
+-pusherSecure=false
