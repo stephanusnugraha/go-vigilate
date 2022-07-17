@@ -133,6 +133,11 @@ func (repo *DBRepo) Host(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// PostHost handles posting of post from
+func (repo *DBRepo) PostHost(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Posted form!"))
+}
+
 // AllUsers lists all admin users
 func (repo *DBRepo) AllUsers(w http.ResponseWriter, r *http.Request) {
 	vars := make(jet.VarMap)
