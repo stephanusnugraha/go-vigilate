@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 12.11 (Ubuntu 12.11-0ubuntu0.20.04.1)
--- Dumped by pg_dump version 12.11 (Ubuntu 12.11-0ubuntu0.20.04.1)
+-- Dumped from database version 14.4 (Ubuntu 14.4-0ubuntu0.22.04.1)
+-- Dumped by pg_dump version 14.4 (Ubuntu 14.4-0ubuntu0.22.04.1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -17,7 +17,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: trigger_set_timestamp(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: trigger_set_timestamp(); Type: FUNCTION; Schema: public; Owner: root
 --
 
 CREATE FUNCTION public.trigger_set_timestamp() RETURNS trigger
@@ -30,14 +30,14 @@ END;
 $$;
 
 
-ALTER FUNCTION public.trigger_set_timestamp() OWNER TO postgres;
+ALTER FUNCTION public.trigger_set_timestamp() OWNER TO root;
 
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- Name: host_services; Type: TABLE; Schema: public; Owner: postgres
+-- Name: host_services; Type: TABLE; Schema: public; Owner: root
 --
 
 CREATE TABLE public.host_services (
@@ -54,10 +54,10 @@ CREATE TABLE public.host_services (
 );
 
 
-ALTER TABLE public.host_services OWNER TO postgres;
+ALTER TABLE public.host_services OWNER TO root;
 
 --
--- Name: host_services_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: host_services_id_seq; Type: SEQUENCE; Schema: public; Owner: root
 --
 
 CREATE SEQUENCE public.host_services_id_seq
@@ -69,17 +69,17 @@ CREATE SEQUENCE public.host_services_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.host_services_id_seq OWNER TO postgres;
+ALTER TABLE public.host_services_id_seq OWNER TO root;
 
 --
--- Name: host_services_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: host_services_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
 
 ALTER SEQUENCE public.host_services_id_seq OWNED BY public.host_services.id;
 
 
 --
--- Name: hosts; Type: TABLE; Schema: public; Owner: postgres
+-- Name: hosts; Type: TABLE; Schema: public; Owner: root
 --
 
 CREATE TABLE public.hosts (
@@ -97,10 +97,10 @@ CREATE TABLE public.hosts (
 );
 
 
-ALTER TABLE public.hosts OWNER TO postgres;
+ALTER TABLE public.hosts OWNER TO root;
 
 --
--- Name: hosts_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: hosts_id_seq; Type: SEQUENCE; Schema: public; Owner: root
 --
 
 CREATE SEQUENCE public.hosts_id_seq
@@ -112,17 +112,17 @@ CREATE SEQUENCE public.hosts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.hosts_id_seq OWNER TO postgres;
+ALTER TABLE public.hosts_id_seq OWNER TO root;
 
 --
--- Name: hosts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: hosts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
 
 ALTER SEQUENCE public.hosts_id_seq OWNED BY public.hosts.id;
 
 
 --
--- Name: preferences; Type: TABLE; Schema: public; Owner: postgres
+-- Name: preferences; Type: TABLE; Schema: public; Owner: root
 --
 
 CREATE TABLE public.preferences (
@@ -134,10 +134,10 @@ CREATE TABLE public.preferences (
 );
 
 
-ALTER TABLE public.preferences OWNER TO postgres;
+ALTER TABLE public.preferences OWNER TO root;
 
 --
--- Name: preferences_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: preferences_id_seq; Type: SEQUENCE; Schema: public; Owner: root
 --
 
 CREATE SEQUENCE public.preferences_id_seq
@@ -149,17 +149,17 @@ CREATE SEQUENCE public.preferences_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.preferences_id_seq OWNER TO postgres;
+ALTER TABLE public.preferences_id_seq OWNER TO root;
 
 --
--- Name: preferences_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: preferences_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
 
 ALTER SEQUENCE public.preferences_id_seq OWNED BY public.preferences.id;
 
 
 --
--- Name: remember_tokens; Type: TABLE; Schema: public; Owner: postgres
+-- Name: remember_tokens; Type: TABLE; Schema: public; Owner: root
 --
 
 CREATE TABLE public.remember_tokens (
@@ -171,10 +171,10 @@ CREATE TABLE public.remember_tokens (
 );
 
 
-ALTER TABLE public.remember_tokens OWNER TO postgres;
+ALTER TABLE public.remember_tokens OWNER TO root;
 
 --
--- Name: remember_tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: remember_tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: root
 --
 
 CREATE SEQUENCE public.remember_tokens_id_seq
@@ -186,17 +186,17 @@ CREATE SEQUENCE public.remember_tokens_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.remember_tokens_id_seq OWNER TO postgres;
+ALTER TABLE public.remember_tokens_id_seq OWNER TO root;
 
 --
--- Name: remember_tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: remember_tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
 
 ALTER SEQUENCE public.remember_tokens_id_seq OWNED BY public.remember_tokens.id;
 
 
 --
--- Name: schema_migration; Type: TABLE; Schema: public; Owner: postgres
+-- Name: schema_migration; Type: TABLE; Schema: public; Owner: root
 --
 
 CREATE TABLE public.schema_migration (
@@ -204,10 +204,10 @@ CREATE TABLE public.schema_migration (
 );
 
 
-ALTER TABLE public.schema_migration OWNER TO postgres;
+ALTER TABLE public.schema_migration OWNER TO root;
 
 --
--- Name: services; Type: TABLE; Schema: public; Owner: postgres
+-- Name: services; Type: TABLE; Schema: public; Owner: root
 --
 
 CREATE TABLE public.services (
@@ -220,10 +220,10 @@ CREATE TABLE public.services (
 );
 
 
-ALTER TABLE public.services OWNER TO postgres;
+ALTER TABLE public.services OWNER TO root;
 
 --
--- Name: services_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: services_id_seq; Type: SEQUENCE; Schema: public; Owner: root
 --
 
 CREATE SEQUENCE public.services_id_seq
@@ -235,17 +235,17 @@ CREATE SEQUENCE public.services_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.services_id_seq OWNER TO postgres;
+ALTER TABLE public.services_id_seq OWNER TO root;
 
 --
--- Name: services_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: services_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
 
 ALTER SEQUENCE public.services_id_seq OWNED BY public.services.id;
 
 
 --
--- Name: sessions; Type: TABLE; Schema: public; Owner: postgres
+-- Name: sessions; Type: TABLE; Schema: public; Owner: root
 --
 
 CREATE TABLE public.sessions (
@@ -255,10 +255,10 @@ CREATE TABLE public.sessions (
 );
 
 
-ALTER TABLE public.sessions OWNER TO postgres;
+ALTER TABLE public.sessions OWNER TO root;
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: postgres
+-- Name: users; Type: TABLE; Schema: public; Owner: root
 --
 
 CREATE TABLE public.users (
@@ -275,10 +275,10 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO postgres;
+ALTER TABLE public.users OWNER TO root;
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: root
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -290,59 +290,59 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_id_seq OWNER TO postgres;
+ALTER TABLE public.users_id_seq OWNER TO root;
 
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: host_services id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: host_services id; Type: DEFAULT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.host_services ALTER COLUMN id SET DEFAULT nextval('public.host_services_id_seq'::regclass);
 
 
 --
--- Name: hosts id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: hosts id; Type: DEFAULT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.hosts ALTER COLUMN id SET DEFAULT nextval('public.hosts_id_seq'::regclass);
 
 
 --
--- Name: preferences id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: preferences id; Type: DEFAULT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.preferences ALTER COLUMN id SET DEFAULT nextval('public.preferences_id_seq'::regclass);
 
 
 --
--- Name: remember_tokens id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: remember_tokens id; Type: DEFAULT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.remember_tokens ALTER COLUMN id SET DEFAULT nextval('public.remember_tokens_id_seq'::regclass);
 
 
 --
--- Name: services id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: services id; Type: DEFAULT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.services ALTER COLUMN id SET DEFAULT nextval('public.services_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Name: host_services host_services_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: host_services host_services_pkey; Type: CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.host_services
@@ -350,7 +350,7 @@ ALTER TABLE ONLY public.host_services
 
 
 --
--- Name: hosts hosts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: hosts hosts_pkey; Type: CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.hosts
@@ -358,7 +358,7 @@ ALTER TABLE ONLY public.hosts
 
 
 --
--- Name: preferences preferences_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: preferences preferences_pkey; Type: CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.preferences
@@ -366,7 +366,7 @@ ALTER TABLE ONLY public.preferences
 
 
 --
--- Name: remember_tokens remember_tokens_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: remember_tokens remember_tokens_pkey; Type: CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.remember_tokens
@@ -374,7 +374,7 @@ ALTER TABLE ONLY public.remember_tokens
 
 
 --
--- Name: services services_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: services services_pkey; Type: CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.services
@@ -382,7 +382,7 @@ ALTER TABLE ONLY public.services
 
 
 --
--- Name: sessions sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: sessions sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.sessions
@@ -390,7 +390,7 @@ ALTER TABLE ONLY public.sessions
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.users
@@ -398,63 +398,63 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: schema_migration_version_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: schema_migration_version_idx; Type: INDEX; Schema: public; Owner: root
 --
 
 CREATE UNIQUE INDEX schema_migration_version_idx ON public.schema_migration USING btree (version);
 
 
 --
--- Name: sessions_expiry_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: sessions_expiry_idx; Type: INDEX; Schema: public; Owner: root
 --
 
 CREATE INDEX sessions_expiry_idx ON public.sessions USING btree (expiry);
 
 
 --
--- Name: host_services set_timestamp; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: host_services set_timestamp; Type: TRIGGER; Schema: public; Owner: root
 --
 
 CREATE TRIGGER set_timestamp BEFORE UPDATE ON public.host_services FOR EACH ROW EXECUTE FUNCTION public.trigger_set_timestamp();
 
 
 --
--- Name: hosts set_timestamp; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: hosts set_timestamp; Type: TRIGGER; Schema: public; Owner: root
 --
 
 CREATE TRIGGER set_timestamp BEFORE UPDATE ON public.hosts FOR EACH ROW EXECUTE FUNCTION public.trigger_set_timestamp();
 
 
 --
--- Name: preferences set_timestamp; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: preferences set_timestamp; Type: TRIGGER; Schema: public; Owner: root
 --
 
 CREATE TRIGGER set_timestamp BEFORE UPDATE ON public.preferences FOR EACH ROW EXECUTE FUNCTION public.trigger_set_timestamp();
 
 
 --
--- Name: remember_tokens set_timestamp; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: remember_tokens set_timestamp; Type: TRIGGER; Schema: public; Owner: root
 --
 
 CREATE TRIGGER set_timestamp BEFORE UPDATE ON public.remember_tokens FOR EACH ROW EXECUTE FUNCTION public.trigger_set_timestamp();
 
 
 --
--- Name: services set_timestamp; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: services set_timestamp; Type: TRIGGER; Schema: public; Owner: root
 --
 
 CREATE TRIGGER set_timestamp BEFORE UPDATE ON public.services FOR EACH ROW EXECUTE FUNCTION public.trigger_set_timestamp();
 
 
 --
--- Name: users set_timestamp; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: users set_timestamp; Type: TRIGGER; Schema: public; Owner: root
 --
 
 CREATE TRIGGER set_timestamp BEFORE UPDATE ON public.users FOR EACH ROW EXECUTE FUNCTION public.trigger_set_timestamp();
 
 
 --
--- Name: host_services host_services_hosts_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: host_services host_services_hosts_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.host_services
@@ -462,7 +462,7 @@ ALTER TABLE ONLY public.host_services
 
 
 --
--- Name: host_services host_services_services_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: host_services host_services_services_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.host_services
@@ -470,7 +470,7 @@ ALTER TABLE ONLY public.host_services
 
 
 --
--- Name: remember_tokens remember_tokens_users_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: remember_tokens remember_tokens_users_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY public.remember_tokens
