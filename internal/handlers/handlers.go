@@ -1,7 +1,7 @@
 package handlers
 
 import (
-    "encoding/json"
+	"encoding/json"
 	"fmt"
 	"github.com/CloudyKit/jet/v6"
 	"github.com/go-chi/chi"
