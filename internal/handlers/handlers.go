@@ -356,11 +356,15 @@ type serviceJSON struct {
 	OK bool `json:"ok"`
 }
 
+// ToggleServiceForHost turns a host service on or off (active or inactive)
 func (repo *DBRepo) ToggleServiceForHost(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
 		log.Println(err)
 	}
+
+	var resp serviceJSON
+	resp.OK = true
 
 	hostID, _ := strconv.Atoi(r.Form.Get("host_id"))
 	serviceID, _ := strconv.Atoi(r.Form.Get("service_id"))
@@ -368,8 +372,11 @@ func (repo *DBRepo) ToggleServiceForHost(w http.ResponseWriter, r *http.Request)
 
 	log.Println("Data:", hostID, serviceID, active)
 
-	var resp serviceJSON
-	resp.OK = true
+	err = repo.DB.UpdateHostServiceStatus(hostID, serviceID, active)
+	if err != nil {
+		log.Println(err)
+		resp.OK = false
+	}
 
 	out, _ := json.MarshalIndent(resp, "", "  ")
 	w.Header().Set("Content-Type", "application/json")
