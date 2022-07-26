@@ -18,6 +18,7 @@ const (
 	SSLCertificate = 3
 )
 
+// jsonResp describes the JSON response sent back to client
 type jsonResp struct {
 	OK            bool      `json:"ok"`
 	Message       string    `json:"message"`
@@ -29,45 +30,59 @@ type jsonResp struct {
 	LastCheck     time.Time `json:"last_check"`
 }
 
+// TestCheck manually tests a host service and sends JSON response
 func (repo *DBRepo) TestCheck(w http.ResponseWriter, r *http.Request) {
 	hostServiceID, _ := strconv.Atoi(chi.URLParam(r, "id"))
 	oldStatus := chi.URLParam(r, "oldStatus")
-
-	log.Println(hostServiceID, oldStatus)
+	okay := true
 
 	// get host service
 	hs, err := repo.DB.GetHostServiceByID(hostServiceID)
 	if err != nil {
 		log.Println(err)
-		return
+		okay = false
 	}
-
-	log.Println("Service name is", hs.Service.ServiceName)
 
 	// get host?
 	h, err := repo.DB.GetHostByID(hs.HostID)
 	if err != nil {
 		log.Println(err)
-		return
+		okay = false
 	}
 
 	// test the service
 	newStatus, msg := repo.testServiceForHost(h, hs)
-	log.Println(newStatus, msg)
+
+	// update the host service in the db with status (if changed) and last check
+
+	// broadcast service status changed event
+
+	var resp jsonResp
 
 	// create json
-	resp := jsonResp{
-		OK:      true,
-		Message: "test message",
+	if okay {
+		resp = jsonResp{
+			OK:            true,
+			Message:       msg,
+			ServiceID:     hs.ServiceID,
+			HostServiceID: hs.ID,
+			HostID:        hs.HostID,
+			OldStatus:     oldStatus,
+			NewStatus:     newStatus,
+			LastCheck:     time.Now(),
+		}
+	} else {
+		resp.OK = false
+		resp.Message = "Something went wrong"
 	}
 
 	// send json to client
-
 	out, _ := json.MarshalIndent(resp, "", "  ")
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(out)
 }
 
+// testServiceForHost tests a service for a host
 func (repo *DBRepo) testServiceForHost(h models.Host, hs models.HostService) (string, string) {
 	var msg, newStatus string
 
