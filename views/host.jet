@@ -301,7 +301,7 @@ Host
                                         <span class="{{.Service.Icon}}"></span>
                                         {{.Service.ServiceName}}
 
-                                        <span class="badge bg-secondary" onclick="checkNow({{.ID}})">
+                                        <span class="badge bg-secondary" onclick="checkNow({{.ID}}, 'pending')">
                                         Check Now
                                         </span>
                                     </td>
@@ -397,8 +397,14 @@ Host
         }
     }
 
-    function checkNow(id) {
-        console.log("Clicked check now")
+    function checkNow(id, oldStatus) {
+        console.log("Clicked check now");
+
+        fetch('/admin/perform-check/' + id + '/' + oldStatus)
+            .then(response => response.json())
+            .then(data => {
+                console.log("Ok:", data.ok, "message:", data.message);
+            })
     }
 </script>
 
