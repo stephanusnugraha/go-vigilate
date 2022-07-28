@@ -411,6 +411,8 @@ func (repo *DBRepo) SetSystemPref(w http.ResponseWriter, r *http.Request) {
 		resp.Message = err.Error()
 	}
 
+	repo.App.PreferenceMap["monitoring_live"] = prefValue
+
 	out, _ := json.MarshalIndent(resp, "", "  ")
 
 	w.Header().Set("Content-Type", "application/json")
@@ -425,6 +427,7 @@ func (repo *DBRepo) ToggleMonitoring(w http.ResponseWriter, r *http.Request) {
 	if enabled == "1" {
 		//start monitoring
 		log.Println("Turning monitoring on")
+		repo.StartMonitoring()
 		repo.App.Scheduler.Start()
 	} else {
 		// stop monitoring

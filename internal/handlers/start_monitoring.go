@@ -1,4 +1,4 @@
-package main
+package handlers
 
 import (
 	"fmt"
@@ -7,16 +7,19 @@ import (
 	"time"
 )
 
+// job is the unit of work to be performed
 type job struct {
 	HostServiceID int
 }
 
+// Run runs the scheduled job
 func (j job) Run() {
-	repo.ScheduleCheck(j.HostServiceID)
+	Repo.ScheduleCheck(j.HostServiceID)
 }
 
-func startMonitoring() {
-	if preferenceMap["monitoring_live"] == "1" {
+//StartMonitoring starts the monitoring process
+func (repo *DBRepo) StartMonitoring() {
+	if app.PreferenceMap["monitoring_live"] == "1" {
 		// trigger a message to broadcast to all clients that app is starting to monitoring
 		data := make(map[string]string)
 		data["message"] = "Monitoring is starting"
