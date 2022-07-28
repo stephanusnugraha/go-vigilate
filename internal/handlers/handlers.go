@@ -397,9 +397,18 @@ func (repo *DBRepo) ToggleServiceForHost(w http.ResponseWriter, r *http.Request)
 }
 
 func (repo *DBRepo) SetSystemPref(w http.ResponseWriter, r *http.Request) {
+	prefName := r.PostForm.Get("pref_name")
+	prefValue := r.PostForm.Get("pref_value")
+
 	var resp jsonResp
 	resp.OK = true
 	resp.Message = ""
+
+	err := repo.DB.UpdateSystemPref(prefName, prefValue)
+	if err != nil {
+		resp.OK = false
+		resp.Message = err.Error()
+	}
 
 	out, _ := json.MarshalIndent(resp, "", "  ")
 
